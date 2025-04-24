@@ -1,0 +1,71 @@
+line-length = 120
+target-version = "py312"
+fix = true
+
+
+# Formatting options
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = false
+docstring-code-line-length = 120
+
+# Linting rules
+[lint]
+select = [
+    "A",  # flake8-builtins: Checks for the use of Python built-in names as variable names.
+    "I",  # isort: Ensures imports are sorted according to specified conventions.
+    "B",  # flake8-bugbear: Identifies likely bugs and design problems in Python code.
+    "E", 
+    "F",  
+    "N", 
+    "PL", 
+    "RUF"
+]
+
+ignore = [
+    "D",  # pydocstyle
+    "B008", # Loop control variable `var` overrides iterable it iterates
+    "C",  # mccabe: Checks for code complexity.
+    "C90",
+    "ANN",  # flake8-annotations: Checks for function annotations.
+    "BLE",  # flake8-blind-except: Checks for bare except clauses.
+    "N806",
+    "PLW",
+    "T20",
+    "ERA",
+    "PGH",
+    "W",
+    "ANN101", "ANN102", "E999", "PT004", "PT005", "PGH003", "PGH004",
+    "UP"
+]
+
+fixable = [
+    "A",  # flake8-builtins: Checks for the use of Python built-in names as variable names.
+    "I",  # isort: Ensures imports are sorted according to specified conventions.
+    "B",  # flake8-bugbear: Identifies likely bugs and design problems in Python code.
+    "E",
+    "F",
+    "N",
+    "PL",
+    "RUF"
+]
+
+[lint.isort]
+combine-as-imports = true
+lines-between-types = 1
+lines-after-imports = 2
+known-first-party = ["src", "tests"]
+
+[lint.mccabe]
+# Flag errors (`C901`) whenever the complexity level exceeds 5.
+max-complexity = 15
+
+[lint.pycodestyle]
+ignore-overlong-task-comments = true
+
+[lint.per-file-ignores]
+"tests/**" = ["D", "PLR"]
+"test_*.py" = ["D"]
