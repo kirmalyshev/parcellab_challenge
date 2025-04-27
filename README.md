@@ -31,7 +31,7 @@ A FastAPI-based backend service that provides shipment tracking information & we
    set `OPENWEATHERMAP_API_KEY=your_api_key_here` in `.env`
 
 3. Start the application + create dataset:
-   ```bash
+```bash
    make up-d
    make migrations-up
    make generate_shipments
